@@ -13,3 +13,14 @@ This will give you preview of the document which reloads when a change is made. 
 ### Structure
 `docs` folder contains actual document contents. Also `SUMMARY.md` dictates index of the manual and structure of entire document.
 for more detail, please refer [`Structure`](https://github.com/GitbookIO/gitbook/blob/master/docs/pages.md)
+
+### Templates
+- Basic
+- Feature Introduction
+- How to do xx
+- Q&A
+
+### Resources
+- [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- KB Manual
+- Gitbook Online Manual
