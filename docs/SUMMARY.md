@@ -1,10 +1,10 @@
 # Summary
 
 * [AppVolumes](README.md)
-  * [Manager](manager/README.md)
-    * [Volumes](manager/volumes/README.md)
-      * [AppStacks](manager/volumes/appstacks.md)
-      * [Writables](manager/volumes/writables.md)
+  * [Manager](manager/ui.md)
+    * [Volumes](manager/ui/volumes/volumes.md)
+      * [AppStacks](manager/ui/volumes/appstacks/appstacks.md)
+      * [Writables](manager/ui/volumes/writables/writables.md)
         * [Create Writables](manager/volumes/writables.md)
       * [Attachments](manager/volumes/attachments.md)
       * [Assignments](manager/volumes/assignments.md)

@@ -1,26 +1,18 @@
 ## AppVolumes Internal documents repository
 This is our `engineering driven` internal documents repository for AppVolumes 2.x product.
 
-### Installation
-This manual is a `gitbook` which is markdown based version controlled manuals.
-
-```schell
-$ npm install gitbook-cli -g
-$ gitbook serve
-```
-This will give you preview of the document which reloads when a change is made. Please refer this [`section`](https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md) for installing tool-chains for local development.
-
 ### Structure
-`docs` folder contains actual document contents. Also `SUMMARY.md` dictates index of the manual and structure of entire document.
-for more detail, please refer [`Structure`](https://github.com/GitbookIO/gitbook/blob/master/docs/pages.md)
+`docs` folder contains actual document contents. All `.md` files are placed under corresponding directory path. Directory structures represent hierarchy of functional menus. Also each `.md` files should cover features level.   
+
+![top menu](docs/assets/ui-top.png "manager ui menu")
+
+![tree](docs/assets/ui-tree.png "Note path to create_appstack.md")
+
+Note that path to `create_appstack.md` represent menu structure from the `UI`
 
 ### Templates
+These are pre-baked templates for different categories
 - Basic
 - Feature Introduction
 - How to do xx
 - Q&A
-
-### Resources
-- [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-- KB Manual
-- Gitbook Online Manual

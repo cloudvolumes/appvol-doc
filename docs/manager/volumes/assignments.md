@@ -1,3 +1,0 @@
-# Manager > Volumes
-
-## Assignments
