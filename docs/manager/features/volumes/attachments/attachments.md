@@ -1,1 +1,1 @@
-# Manager > UI > Volumes > Attachments
+# Attachments

@@ -1,1 +1,1 @@
-# Manager > UI > Volumes > Assignments
+# Assignments

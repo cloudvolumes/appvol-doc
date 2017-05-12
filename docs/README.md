@@ -1,7 +1,3 @@
----
-description: This is a short description of my page
----
-
 # Welcome to AppVolumes Manual
 This is a great product
 
