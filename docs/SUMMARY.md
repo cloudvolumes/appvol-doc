@@ -1,22 +1,34 @@
 # Summary
 
-* [AppVolumes](README.md)
-  * [Manager](manager/ui.md)
-    * [Volumes](manager/ui/volumes/volumes.md)
-      * [AppStacks](manager/ui/volumes/appstacks/appstacks.md)
-      * [Writables](manager/ui/volumes/writables/writables.md)
-        * [Create Writables](manager/volumes/writables.md)
-      * [Attachments](manager/volumes/attachments.md)
-      * [Assignments](manager/volumes/assignments.md)
-    * [Directory](manager/directory/README.md)
-    * [Infrastructure](manager/Infrastructure/README.md)
-    * [Activity](manager/activity/README.md)
-    * [Configuration](manager/configuration/README.md)
-  * [Agent](agent/README.md)
+### Manager
+* [Dashboard](manager/features/dashboard/dashboard.md)
+* [Volumes](manager/features/volumes/volumes.md)
+  * [AppStacks](manager/features/volumes/appstacks/appstacks.md)
+    * [Create AppStack](manager/features/volumes/appstacks/create_appstack.md)
+    * [Import AppStacks](manager/features/volumes/appstacks/import_appstacks.md)    
+    * [Rescan](manager/features/volumes/appstacks/rescan.md)    
 
-* [Misc](README.md)
-  * [Recovery](misc/recovery/README.md)
-  * [Scale](misc/scale/README.md)
-  * [Setup](misc/setup/README.md)
-* [FAQ](faq/README.md)
-* [Stash](stash/README.md)
+  * [Writables](manager/features/volumes/writables/writables.md)
+  * [Attachments](manager/features/volumes/attachments/attachments.md)
+  * [Assignments](manager/features/volumes/assignments/attachments.md)
+  * [Applications](manager/features/volumes/applications/applications.md)
+
+* [Directory](manager/features/directory/directory.md)
+* [Infrastructure](manager/features/infrastructure/infrastructure.md)
+* [Activity](manager/features/activity/activity.md)
+* [Configuration](manager/features/configuration/configuration.md)
+
+
+### Agent
+
+### Migration
+
+### Recovery
+
+### Enterprise Scalability
+
+### Setup
+
+### Troubleshooting
+
+### Upgrade
