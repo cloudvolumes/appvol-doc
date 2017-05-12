@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Manager Log Information &#8212; App Volume 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Manager" href="ui.html" />
+    <link rel="prev" title="Manager &gt; UI &gt; Volumes &gt; Writables" href="features/volumes/writables/writables.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ui.html" title="Manager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="features/volumes/writables/writables.html" title="Manager &gt; UI &gt; Volumes &gt; Writables"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">App Volume 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="manager-log-information">
+<span id="manager-log-information"></span><h1>Manager Log Information<a class="headerlink" href="#manager-log-information" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="types">
+<span id="types"></span><h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<p>There are three main logs output by the Manager.</p>
+<ul class="simple">
+<li>Application server logs (Ruby on Rails)</li>
+<li>HTTP server logs (Nginx)</li>
+<li>Service logs (STDOUT from launcher process)</li>
+</ul>
+</div>
+<div class="section" id="application-server-logs-ruby-on-rails">
+<span id="application-server-logs-ruby-on-rails"></span><h2>Application server logs (Ruby on Rails)<a class="headerlink" href="#application-server-logs-ruby-on-rails" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="line-sources">
+<span id="line-sources"></span><h3>Line sources<a class="headerlink" href="#line-sources" title="Permalink to this headline">¶</a></h3>
+<p>Lines in this log come from a few different sources. Request logs, background job logs, and power-watcher logs.</p>
+</div>
+<div class="section" id="process-and-request-numbers">
+<span id="process-and-request-numbers"></span><h3>Process and Request numbers<a class="headerlink" href="#process-and-request-numbers" title="Permalink to this headline">¶</a></h3>
+<p>Each log line starts begins with a timestamp and a process/request identifier. This identifier can be used to correlate log messages for a request. This is especially important when multiple requests happen at the same time and their log messages become intertwined.</p>
+<p>For example, the line below came from the server process &#8220;2282&#8221; and is the 6th request to be received on that process.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">13</span> <span class="mi">06</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">03</span> <span class="n">UTC</span><span class="p">]</span>     <span class="n">P22823R6</span>  <span class="n">INFO</span> <span class="n">Started</span> <span class="n">GET</span> <span class="s2">&quot;/login&quot;</span> <span class="k">for</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="n">at</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span> <span class="mi">22</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">03</span> <span class="o">-</span><span class="mi">0800</span>
+</pre></div>
+</div>
+<p>You can tell a log was generated by a background-job or the power-watcher by looking for &#8220;DJ&#8221; or &#8220;PW&#8221; in the request identifier.</p>
+<p>Background job:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">13</span> <span class="mi">06</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">25</span> <span class="n">UTC</span><span class="p">]</span>  <span class="n">P22851DJ244</span>  <span class="n">INFO</span>        <span class="n">Cvo</span><span class="p">:</span> <span class="n">Refreshing</span> <span class="n">attachments</span>
+</pre></div>
+</div>
+<p>Power-watcher:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">13</span> <span class="mi">07</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">15</span> <span class="n">UTC</span><span class="p">]</span>     <span class="n">P22827PW</span> <span class="n">DEBUG</span>        <span class="n">Cvo</span><span class="p">:</span> <span class="p">[</span><span class="n">PowerWatcher</span><span class="p">]</span> <span class="n">Watching</span> <span class="n">power</span> <span class="n">state</span> <span class="n">changes</span> <span class="k">for</span> <span class="mi">1</span> <span class="n">machine</span> <span class="n">managers</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Manager Log Information</a><ul>
+<li><a class="reference internal" href="#types">Types</a></li>
+<li><a class="reference internal" href="#application-server-logs-ruby-on-rails">Application server logs (Ruby on Rails)</a><ul>
+<li><a class="reference internal" href="#line-sources">Line sources</a></li>
+<li><a class="reference internal" href="#process-and-request-numbers">Process and Request numbers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="features/volumes/writables/writables.html"
+                        title="previous chapter">Manager &gt; UI &gt; Volumes &gt; Writables</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ui.html"
+                        title="next chapter">Manager</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/manager/logs.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ui.html" title="Manager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="features/volumes/writables/writables.html" title="Manager &gt; UI &gt; Volumes &gt; Writables"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">App Volume 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, App Volume Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>
