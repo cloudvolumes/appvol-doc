@@ -7,13 +7,15 @@ Welcome to App Volume's documentation!
 ======================================
 
 .. toctree::
-   :maxdepth: 5
-   :glob:
+  :hidden:
+  :glob:
 
-   *
-   **/*
+  *
+  **/*
 
+.. toctree::
 
+   SUMMARY_READTHEDOC.md
 
 Indices and tables
 ==================
